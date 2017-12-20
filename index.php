@@ -347,15 +347,10 @@ body{
 <div class="bo">
     <nav style="float:right;">
                 <ul >
-<<<<<<< HEAD
-                    <a href="login.php"><button type="button" class="btn btn-primary">LOGIN</button></a>
-                    <a href="daftar.php"><button type="button" class="btn btn-success">DAFTAR</button></a>
-=======
+
                     <a href="user/loginpengguna.html"><button type="button" class="btn btn-primary">LOGIN</button></a>
                     <a href="user/daftar.php"><button type="button" class="btn btn-success">DAFTAR</button></a>
 
-
->>>>>>> cec2dec3db8d4e07e8cf11d53755756965fddff5
                 </ul>
     </nav>
   <nav>
