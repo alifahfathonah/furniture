@@ -96,7 +96,7 @@
             
       		<div class="row">
             <div class="col-sm-6">
-                <form action="" method="post" name="form1">
+                <form action="daftar.php" method="post" name="form1">
                     <table>
                     	
      					<h2>FORM PENDAFTARAN PENGGUNA</h2>
@@ -105,29 +105,29 @@
 
                             <div class="box1">
                                 Nama<br>
-                                <input type="text" name=""> <br>
+                                <input type="text" name="nama"> <br>
 
                                 No. Telepon <br>
-                                <input type="text" name=""> <br>
+                                <input type="text" name="telp"> <br>
 
                                 Alamat Lengkap<br>
                                 <textarea name="alamat">
                                     
                                 </textarea>
                                 <br>
-                                <input type="submit" name="" value="Kirim">
+                                <input type="submit" name="" value="Kirim" name="submit">
                                 <a href="../index.php"><input type="submit" name="" value="Batal"></a>
                             </div>
 
                             <div class="box2">
                                 Email <br>
-                                <input type="text" name=""> <br>
+                                <input type="text" name="email"> <br>
 
                                 Password <br>
-                                <input type="text" name=""> <br>
+                                <input type="password" name="password"> <br>
 
                                 Konfirmasi Password <br>
-                                <input type="text" name=""> <br>
+                                <input type="password" name="confirmasi"> <br>
 
                     
 
@@ -136,7 +136,25 @@
                     </table>
 <!---->
 				</form>	
-			
+                <?php 
+            			if(isset($_POST['submit'])) {
+                    $nama = $_POST['nama'];
+                    $email = $_POST['email'];
+                    $telp = $_POST['telp'];
+                    $password = $_POST['password'];
+                    $konfirmasi = $_POST['confirmasi']; 
+                    $alamat = $_POST['alamat'];
+                    
+                    // include database connection file
+                    include_once("../koneksi/db.php");
+                            
+                    // Insert user data into table
+                    $result = mysqli_query($mysqli, "INSERT INTO pembeli(nama_pembeli,email,telepon,password,alamat) VALUES('$nama','$email','$telp','$password','$alamat')");
+                    
+                    // Show message when user added
+                    echo "User added successfully. <a href='index.php'>View Users</a>";
+                    }
+                 ?>
 		</div>
 
 </body>
