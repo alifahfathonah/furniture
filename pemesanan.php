@@ -133,7 +133,7 @@
 															</div>
 															<div class="form-group">
 																<label>Alamat</label>
-																<input type="text" class="form-control" name="alamat_pembeli" placeholder="Harga Barang" value="<?= $data['alamat_pembeli'] ?>" style="width: 250px" >
+																<textarea name="alamat_pembeli" rows="3" cols="3" style="width: 250px"><?= $data['alamat_pembeli'] ?></textarea>
 															</div>
                                 <br>
                             </div>

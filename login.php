@@ -36,7 +36,7 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.masuk{
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -102,7 +102,7 @@ body {
   background: rgba(4, 40, 68, 0.85);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
 </head>
