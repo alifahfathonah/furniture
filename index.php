@@ -348,7 +348,7 @@ body{
     <nav style="float:right;">
                 <ul >
 
-                    <a href="user/loginpengguna.php"><button type="button" class="btn btn-primary">LOGIN</button></a>
+                    <a href="login.php"><button type="button" class="btn btn-primary">MASUK</button></a>
                     <a href="daftar.php"><button type="button" class="btn btn-success">DAFTAR</button></a>
 
                 </ul>
@@ -407,21 +407,10 @@ body{
 				<div class="product-info smart-form">
 					<div class="row">
 						<div class="col-md-12">
-<<<<<<< HEAD
-              <?php
-                $sql2 = mysqli_query($conn, "SELECT id_pembeli FROM pembeli");
-                while ($data = mysqli_fetch_array($sql2)) {
-              ?>
-              <a href="pemesanan.php?pemesanan=<?php echo $hasil['kode_barang']; ?>
-                &pembeli=<?php echo $data['id_pembeli']; ?>" class="btn btn-info">Pesan Barang</a>
-                <?php
-                    }
-                  ?>
-=======
-           
-              <a href="user/loginpengguna.html" class="btn btn-info">Pesan Barang</a>
-             
->>>>>>> a55a7f0ef36821bf006ba7276dcf3c0be19aa6a9
+
+
+
+              <a href="login.php" class="btn btn-info">Pesan Barang</a>
 						</div>
 
 					</div>

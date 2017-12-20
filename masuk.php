@@ -352,7 +352,7 @@ body{
     <nav style="float:right;">
                 <ul >
 
-                    HALLO <?php echo '<b>'.$username.'</b>'; ?>
+                    <a href="logout.php"><button type="button" class="btn btn-primary">KELUAR</button></a>
 
                 </ul>
     </nav>
@@ -434,22 +434,6 @@ body{
     }
   ?>
 
-<div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Detail Barang</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="fetched-data"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <center>
       <nav aria-label="Page navigation example">
@@ -463,7 +447,7 @@ body{
             }else{ // Jika page bukan page ke 1
               $link_prev = ($halaman > 1)? $halaman - 1 : 1;
             ?>
-              <li><a href="databarang.php?halaman=<?php echo $link_prev; ?>">&laquo;</a></li>
+              <li><a href="masuk.php?halaman=<?php echo $link_prev; ?>">&laquo;</a></li>
             <?php
             }
             ?>
@@ -476,7 +460,7 @@ body{
             $jum = $hitung / 4;
             $jumlah = ceil($jum);
             for ($i=1; $i <= $jumlah ; $i++) {
-                 echo "<li><a href='index.php?halaman=$i'>".$i."</a></li>";
+                 echo "<li><a href='masuk.php?halaman=$i'>".$i."</a></li>";
              }
 
             ?>
@@ -492,7 +476,7 @@ body{
             }else{ // Jika Bukan page terakhir
               $link_next = ($halaman < $jumlah)? $halaman + 1 : $jumlah;
             ?>
-              <li><a href="index.php?page=<?php echo $link_next; ?>">&raquo;</a></li>
+              <li><a href="masuk.php?page=<?php echo $link_next; ?>">&raquo;</a></li>
             <?php
             }
             ?>
