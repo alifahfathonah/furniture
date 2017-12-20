@@ -105,7 +105,7 @@
 
                             <div class="box1">
                                 Nama<br>
-
+															
                                 <input type="text" name="nama"> <br>
 
                                 No. Telepon <br>

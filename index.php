@@ -407,6 +407,7 @@ body{
 				<div class="product-info smart-form">
 					<div class="row">
 						<div class="col-md-12">
+<<<<<<< HEAD
               <?php
                 $sql2 = mysqli_query($conn, "SELECT id_pembeli FROM pembeli");
                 while ($data = mysqli_fetch_array($sql2)) {
@@ -416,6 +417,11 @@ body{
                 <?php
                     }
                   ?>
+=======
+           
+              <a href="user/loginpengguna.html" class="btn btn-info">Pesan Barang</a>
+             
+>>>>>>> a55a7f0ef36821bf006ba7276dcf3c0be19aa6a9
 						</div>
 
 					</div>
