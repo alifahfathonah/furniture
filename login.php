@@ -12,7 +12,7 @@
 
 .login-page {
   width: 360px;
-  padding: 15% 0 0;
+  padding: 13% 0 0;
   margin: auto;
 }
 .form {
@@ -99,11 +99,7 @@
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: rgba(4, 40, 68, 0.85);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
@@ -133,9 +129,10 @@ body {
 <div class="login-page">
   <div class="form">
     <form class="login-form" action="proses-login.php" method="POST">
+      <h3>LOGIN PENGGUNA</h3>
       <input type="text" placeholder="Email" name="username" />
       <input type="password" placeholder="Password" name="password" />
-      <button>login</button>
+      <button name="submit">login</button>
       <p class="message">Belum punya akun ? <a href="#">DAFTAR DISINI</a></p>
     </form>
   </div>
