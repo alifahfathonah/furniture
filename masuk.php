@@ -352,7 +352,7 @@ body{
     <nav style="float:right;">
                 <ul >
 
-                    <a href="logout.php"><button type="button" class="btn btn-primary">KELUAR</button></a>
+                     <a href="logout.php"><button type="button" class="btn btn-primary">KELUAR</button></a>
 
                 </ul>
     </nav>

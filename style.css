@@ -1,18 +1,8 @@
-<html>
-<head>
-<title>
-</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-<script src="js/bootstrap.min.js" type="text/css"></script>
-<script src="js/jquery.min.js" type="text/css"></script>
-
-<style type="text/css">
-  @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
   width: 360px;
-  padding: 15% 0 0;
+  padding: 8% 0 0;
   margin: auto;
 }
 .form {
@@ -108,37 +98,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
 }
-</style>
-</head>
-<body>
-<!-- <div id="login">
-	<h3>Login Pengguna</h3>
-	<fieldset>
-		<form action="proses-login.php" method="POST">
-			<div class="form-group">
-				<input class="form-control" type="text" name="username" placeholder="username" style="width:320">
-			</div>
-			<div class="form-group">
-			<input class="form-control" type="password" name="password" placeholder="Password" style="width:320">
-			</div>
-			<div class="form-group">
-			<input class="btn btn-primary" type="submit" name="submit" value="login" style="margin-left:10px"><br><br>
-			</div>
-				<a href="index.php" style="margin-left:10px"><< Kembali</a>
-
-</form>
-</div>
-</fieldset>
-</div> -->
-<div class="login-page">
-  <div class="form">
-    <form class="login-form" action="proses-login.php" method="POST">
-      <input type="text" placeholder="Email" name="username" />
-      <input type="password" placeholder="Password" name="password" />
-      <button>login</button>
-      <p class="message">Belum punya akun ? <a href="#">DAFTAR DISINI</a></p>
-    </form>
-  </div>
-</div>
-</body>
-</html>
