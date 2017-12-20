@@ -1,3 +1,22 @@
+<?php  
+    include 'koneksi.php';
+
+    error_reporting(0);
+    
+    $username = $_POST['user_member'];
+    $password = $_POST['password_member'];
+
+
+    $query = mysqli_query($conn, "SELECT * FROM pembeli WHERE email='$username' AND password='$password'");
+    $cek = mysqli_num_rows($query);
+
+    if ((!$username == 'email') and (!$password == 'password')) {
+        header("Location: http://localhost/furniture/user/loginpengguna.html");
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -348,8 +367,7 @@ body{
     <nav style="float:right;">
                 <ul >
 
-                    <a href="user/loginpengguna.html"><button type="button" class="btn btn-primary">LOGIN</button></a>
-                    <a href="user/daftar.php"><button type="button" class="btn btn-success">DAFTAR</button></a>
+                    HALLO <?php echo '<b>'.$username.'</b>'; ?>
 
                 </ul>
     </nav>
