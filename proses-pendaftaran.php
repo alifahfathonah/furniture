@@ -23,8 +23,6 @@
 
                         
 
-                    } else {
-                        die("Akses dilarang...");
-                    }
+                    } 
 
                     ?>

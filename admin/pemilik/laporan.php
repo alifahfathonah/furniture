@@ -103,7 +103,6 @@
       <!-- Isi -->
   			<!-- Tombol Tambah Data -->
         <div class="box box-info">
-
   		<!-- Table
   		Table -->
   		<div class="box-body" >
@@ -118,24 +117,30 @@
   				</thead>
 
   				<tbody>
-  				  	<tr>
-    						<td style="text-align: center;">1</td>
-                <td>2017</td>
-                <td>Januari</td>
-    						<td style="text-align: center;"><a href="download-laporan.php">Download</a></td>
-  					  </tr>
+              <?php
+                include "../../koneksi.php";
+                $halaman = @$_GET['halaman'];
+                if (empty($halaman)) {
+                  $posisi = 0;
+                  $halaman = 1;
+                } else {
+                  $posisi = ($halaman-1) * 5;
+                }
+                $i = $posisi + 1;
+                $sql = mysqli_query($conn, "SELECT DISTINCT date_format(tanggal, '%Y') as tahun, date_format(tanggal, '%M') as bulan  FROM `pemesanan` LIMIT $posisi, 5");
+                while ($hasil = mysqli_fetch_array($sql)) {
+             ?>
+
               <tr>
-    						<td style="text-align: center;">2</td>
-                <td>2017</td>
-                <td>Februari</td>
-    						<td style="text-align: center;"><a href="#">Download</a></td>
+    						<td style="text-align: center;"><?php echo $i; ?></td>
+                <td><?php echo $hasil['tahun']; ?></td>
+                <td><?php echo $hasil['bulan']; ?></td>
+    						<td style="text-align: center;"><a href="download-laporan.php?tahun=<?php echo $hasil['tahun']; ?>&bulan=<?php echo $hasil['bulan']; ?>">Download</a></td>
   					  </tr>
-              <tr>
-    						<td style="text-align: center;">3</td>
-                <td>2017</td>
-                <td>Maret</td>
-    						<td style="text-align: center;"><a href="#">Download</a></td>
-  					  </tr>
+              <?php
+        		 			$i++;
+        		 			}
+                ?>
   				</tbody>
   			</table>
   		</div>
