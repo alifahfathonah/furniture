@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>SI-BARANG</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -62,7 +62,7 @@
         <!-- User Account Menu -->
           <li>
           <!-- Menu Toggle Button -->
-          <a href="#" >
+          <a href="index.html" >
 
             Keluar
           </a>
@@ -103,7 +103,6 @@
       <!-- Isi -->
   			<!-- Tombol Tambah Data -->
         <div class="box box-info">
-
   		<!-- Table
   		Table -->
   		<div class="box-body" >
@@ -118,49 +117,83 @@
   				</thead>
 
   				<tbody>
-  				  	<tr>
-    						<td style="text-align: center;">1</td>
-                <td>2017</td>
-                <td>Januari</td>
-    						<td style="text-align: center;"><a href="download-laporan.php">Download</a></td>
-  					  </tr>
+              <?php
+                include "../../koneksi.php";
+                $halaman = @$_GET['halaman'];
+                if (empty($halaman)) {
+                  $posisi = 0;
+                  $halaman = 1;
+                } else {
+                  $posisi = ($halaman-1) * 5;
+                }
+                $i = $posisi + 1;
+                $sql = mysqli_query($conn, "SELECT DISTINCT date_format(tanggal, '%Y') as tahun, date_format(tanggal, '%M') as bulan  FROM `pemesanan` LIMIT $posisi, 5");
+                while ($hasil = mysqli_fetch_array($sql)) {
+             ?>
+
               <tr>
-    						<td style="text-align: center;">2</td>
-                <td>2017</td>
-                <td>Februari</td>
-    						<td style="text-align: center;"><a href="#">Download</a></td>
+    						<td style="text-align: center;"><?php echo $i; ?></td>
+                <td><?php echo $hasil['tahun']; ?></td>
+                <td><?php echo $hasil['bulan']; ?></td>
+    						<td style="text-align: center;"><a href="download-laporan.php?tahun=<?php echo $hasil['tahun']; ?>&bulan=<?php echo $hasil['bulan']; ?>">Download</a></td>
   					  </tr>
-              <tr>
-    						<td style="text-align: center;">3</td>
-                <td>2017</td>
-                <td>Maret</td>
-    						<td style="text-align: center;"><a href="#">Download</a></td>
-  					  </tr>
+              <?php
+        		 			$i++;
+        		 			}
+                ?>
   				</tbody>
   			</table>
   		</div>
 
       <center>
       	<nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
+          <ul class="pagination">
+              <!-- LINK FIRST AND PREV -->
+              <?php
+              if($halaman == 1){ // Jika page adalah page ke 1, maka disable link PREV
+              ?>
+                <li class="disabled"><a href="#">&laquo;</a></li>
+              <?php
+              }else{ // Jika page bukan page ke 1
+                $link_prev = ($halaman > 1)? $halaman - 1 : 1;
+              ?>
+                <li><a href="laporan.php?halaman=<?php echo $link_prev; ?>">&laquo;</a></li>
+              <?php
+              }
+              ?>
+
+              <!-- LINK NUMBER -->
+              <?php
+              // Buat query untuk menghitung semua jumlah data
+              $res = mysqli_query($conn, "SELECT * FROM pemesanan");
+              $hitung = mysqli_num_rows($res);
+              $jum = $hitung / 5;
+              $jumlah = ceil($jum);
+              for ($i=1; $i <= $jumlah ; $i++) {
+                   echo "<li><a href='laporan.php?halaman=$i'>".$i."</a></li>";
+               }
+
+              ?>
+
+              <!-- LINK NEXT AND LAST -->
+              <?php
+              // Jika page sama dengan jumlah page, maka disable link NEXT nya
+              // Artinya page tersebut adalah page terakhir
+              if($halaman == $jumlah){ // Jika page terakhir
+              ?>
+                <li class="disabled"><a href="#">&raquo;</a></li>
+              <?php
+              }else{ // Jika Bukan page terakhir
+                $link_next = ($halaman < $jumlah)? $halaman + 1 : $jumlah;
+              ?>
+                <li><a href="laporan.php?page=<?php echo $link_next; ?>">&raquo;</a></li>
+              <?php
+              }
+              ?>
+            </ul>
+
       </nav>
       </center>
-    </div>
 
     </section>
 

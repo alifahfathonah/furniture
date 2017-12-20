@@ -163,7 +163,7 @@
 																<label>Jumlah Bayar</label>
 																<input type="text" class="form-control" name="jumlah_bayar" placeholder="Stock Barang" style="width: 250px" >
 																<input type="hidden" class="form-control" name="status"  value="Belum" style="width: 250px" >
-																<input type="text" class="form-control" name="tanggal" placeholder="Kode Barang" value="<?php $tgl=date('d-m-Y'); echo $tgl; ?>" style="width: 250px" >
+																<input type="hidden" class="form-control" name="tanggal" placeholder="Kode Barang" value="<?php $tgl=date('Y-m-d'); echo $tgl; ?>" style="width: 250px" >
 															</div>
 															<input type="submit" name="submit" value="Simpan" class="btn btn-success">
 														</form>

@@ -348,8 +348,8 @@ body{
     <nav style="float:right;">
                 <ul >
 
-                    <a href="user/loginpengguna.html"><button type="button" class="btn btn-primary">LOGIN</button></a>
-                    <a href="user/daftar.php"><button type="button" class="btn btn-success">DAFTAR</button></a>
+                    <a href="user/loginpengguna.php"><button type="button" class="btn btn-primary">LOGIN</button></a>
+                    <a href="daftar.php"><button type="button" class="btn btn-success">DAFTAR</button></a>
 
                 </ul>
     </nav>
@@ -408,7 +408,7 @@ body{
 					<div class="row">
 						<div class="col-md-12">
               <?php
-                $sql2 = mysqli_query($conn, "SELECT * FROM pembeli");
+                $sql2 = mysqli_query($conn, "SELECT id_pembeli FROM pembeli");
                 while ($data = mysqli_fetch_array($sql2)) {
               ?>
               <a href="pemesanan.php?pemesanan=<?php echo $hasil['kode_barang']; ?>

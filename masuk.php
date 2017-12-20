@@ -1,8 +1,8 @@
-<?php  
+<?php
     include 'koneksi.php';
 
     error_reporting(0);
-    
+
     $username = $_POST['user_member'];
     $password = $_POST['password_member'];
 
@@ -12,8 +12,8 @@
 
     if ((!$username == 'email') and (!$password == 'password')) {
         header("Location: http://localhost/furniture/user/loginpengguna.html");
-
     }
+
 
 ?>
 
