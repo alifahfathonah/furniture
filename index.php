@@ -347,8 +347,8 @@ body{
 <div class="bo">
     <nav style="float:right;">
                 <ul >
-                    <a href="/login"><button type="button" class="btn btn-primary">LOGIN</button></a>
-                    <a href="/daftar"><button type="button" class="btn btn-success">DAFTAR</button></a>
+                    <a href="user/loginpengguna.html"><button type="button" class="btn btn-primary">LOGIN</button></a>
+                    <a href="user/daftar.html"><button type="button" class="btn btn-success">DAFTAR</button></a>
 
 
                 </ul>
