@@ -36,7 +36,7 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.masuk{
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -106,7 +106,7 @@ body {
   background: linear-gradient(to left, #76b852, #8DC26F);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
 </head>
@@ -135,7 +135,7 @@ body {
     <form class="login-form" action="proses-login.php" method="POST">
       <input type="text" placeholder="Email" name="username" />
       <input type="password" placeholder="Password" name="password" />
-      <button>login</button>
+      <input class="masuk" type="submit" name="submit" value="Masuk">
       <p class="message">Belum punya akun ? <a href="#">DAFTAR DISINI</a></p>
     </form>
   </div>
