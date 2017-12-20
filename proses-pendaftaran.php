@@ -16,8 +16,12 @@
 
                         $sql = "INSERT INTO pembeli (nama_pembeli, alamat_pembeli, telepon, email, password, id_pegawai) VALUE ('$nama', '$alamat', '$telp', '$email', '$password', '$id_pegawai')";
                         $query = mysqli_query($conn, $sql);
-                        echo "<script language='javascript'>alert('Berhasil Mendaftar');</script>";
-                  			echo '<meta http-equiv="refresh" content="0; url=login.php">';
+                        
+                        if ($query) {
+                            header("Location: http://localhost/furniture/user/loginpengguna.html");    
+                        }
+
+                        
 
                     } else {
                         die("Akses dilarang...");

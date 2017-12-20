@@ -407,15 +407,9 @@ body{
 				<div class="product-info smart-form">
 					<div class="row">
 						<div class="col-md-12">
-              <?php
-                $sql2 = mysqli_query($conn, "SELECT * FROM pembeli");
-                while ($data = mysqli_fetch_array($sql2)) {
-              ?>
-              <a href="pemesanan.php?pemesanan=<?php echo $hasil['kode_barang']; ?>
-                &pembeli=<?php echo $data['id_pembeli']; ?>" class="btn btn-info">Pesan Barang</a>
-                <?php
-                    }
-                  ?>
+           
+              <a href="user/loginpengguna.html" class="btn btn-info">Pesan Barang</a>
+             
 						</div>
 
 					</div>
