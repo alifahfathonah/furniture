@@ -112,7 +112,7 @@
                                 Silahkan Mentransfer dan konfirmasi ke kami, terima kasih .
                             </p>
                         </div>
-                        <a href="/produk"><button type="button" name="button">Kembali</button></a>
+                        <a href="index.php"><button type="button" name="button">Kembali</button></a>
 
 
                     </table>

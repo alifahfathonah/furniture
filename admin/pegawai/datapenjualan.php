@@ -30,6 +30,7 @@
   <style media="screen">
     .box {padding: 20px 15px 15px 20px }
     th{text-align: center;}
+
   </style>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -79,7 +80,7 @@
       <!-- Sidebar user panel -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="active"><a href="../pegawai/databarang.php"><span>Data Barang</span></a></li>
-        <li class="active"><a href="../pegawai/datapenjualan.php"><span>Data Penjualan</span></a></li>
+        <li class="active"><a href="../pegawai/datapenjualan.php"><span>Data Pemesanan</span></a></li>
     </ul>
 
         <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -113,7 +114,9 @@
 						<th>No</th>
 						<th>Nama</th>
 						<th>No. Tlp</th>
+            <th>Alamat</th>
 						<th>Produk</th>
+            <th>Jumlah</th>
 						<th>Bank</th>
 						<th>Pemilik Rekening</th>
             <th>Total Bayar</th>
@@ -121,63 +124,103 @@
 						<th style="text-align: center;" >Aksi</th>
 					</tr>
 				</thead>
-
 				<tbody>
-				  	<tr>
-  						<td>1</td>
-  						<td>Fata</td>
-  						<td>087822555784</td>
-  						<td>Meja</td>
-  						<td>BNI</td>
-  						<td>Fata Hasan</td>
-              <td>1.500.000</td>
-              <td>Terbayar</td>
-  						<td style="text-align: center;"><a href="#"> Konfirmasi</a></td>
-					  </tr>
+            <?php
+              include "../../koneksi.php";
+              $halaman = @$_GET['halaman'];
+              if (empty($halaman)) {
+                $posisi = 0;
+                $halaman = 1;
+              } else {
+                $posisi = ($halaman-1) * 5;
+              }
+              $i = $posisi + 1;
+              $sql = mysqli_query($conn, "SELECT pembeli.nama_pembeli, pembeli.telepon, pembeli.alamat_pembeli, barang.nama_barang, pemesanan.jumlah_barang, pemesanan.nama_bank, pemesanan.pemilik_rekening, pemesanan.jumlah_bayar, pemesanan.status, pemesanan.id_transaksi FROM (barang join pemesanan on barang.kode_barang = pemesanan.kode_barang) join pembeli on pemesanan.id_pembeli = pembeli.id_pembeli LIMIT $posisi, 5");
+              while ($hasil = mysqli_fetch_array($sql)) {
+           ?>
             <tr>
-  						<td>2</td>
-  						<td>Barrur</td>
-  						<td>083822545321</td>
-  						<td>Kursi</td>
-  						<td>BNI</td>
-  						<td>Barrur Rozi</td>
-              <td>100.000</td>
-              <td>Belum</td>
-  						<td style="text-align: center;"><a href="#"> Konfirmasi</a></td>
+              <td style="text-align: center;"><?php echo $i; ?></td>
+    		 			<td><?php echo $hasil['nama_pembeli']; ?></td>
+    		 			<td><?php echo $hasil['telepon']; ?></td>
+    		 			<td><?php echo $hasil['alamat_pembeli']; ?></td>
+    		 			<td><?php echo $hasil['nama_barang']; ?></td>
+    		 			<td><?php echo $hasil['jumlah_barang']; ?></td>
+    		 			<td><?php echo $hasil['nama_bank']; ?></td>
+    		 			<td><?php echo $hasil['pemilik_rekening']; ?></td>
+    		 			<td><?php echo $hasil['jumlah_bayar']; ?></td>
+              <td><?php echo $hasil['status']; ?></td>
+              <?php if ($hasil['status'] == "Belum"){
+                ?>
+                  <td style="text-align: center;"><a href="proses-Konfirmasi.php?id_transaksi=<?php echo $hasil['id_transaksi']; ?>&konfirmasi=<?php echo $hasil['status']; ?>">Konfirmasi</a></td>
+              <?php
+            }else{
+                ?>
+                  <td style="text-align: center;"><a href="#">Konfirmasi</a></td>
+                <?php
+                    }
+                 ?>
+
+
+
+
 					  </tr>
-            <tr>
-  						<td>3</td>
-  						<td>Hasan</td>
-  						<td>081803605255</td>
-  						<td>Kursi</td>
-  						<td>BNI</td>
-  						<td>Hasan</td>
-              <td>100.000</td>
-              <td>Belum</td>
-  						<td style="text-align: center;"><a href="#"> Konfirmasi</a></td>
-					  </tr>
+            <?php
+      		 			$i++;
+      		 			}
+
+
+              ?>
 				</tbody>
 			</table>
 		</div>
 
     <center>
     	<nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
+        <ul class="pagination">
+            <!-- LINK FIRST AND PREV -->
+            <?php
+            if($halaman == 1){ // Jika page adalah page ke 1, maka disable link PREV
+            ?>
+              <li class="disabled"><a href="#">&laquo;</a></li>
+            <?php
+            }else{ // Jika page bukan page ke 1
+              $link_prev = ($halaman > 1)? $halaman - 1 : 1;
+            ?>
+              <li><a href="datapenjualan.php?halaman=<?php echo $link_prev; ?>">&laquo;</a></li>
+            <?php
+            }
+            ?>
+
+            <!-- LINK NUMBER -->
+            <?php
+            // Buat query untuk menghitung semua jumlah data
+            $res = mysqli_query($conn, "SELECT * FROM pemesanan");
+            $hitung = mysqli_num_rows($res);
+            $jum = $hitung / 5;
+            $jumlah = ceil($jum);
+            for ($i=1; $i <= $jumlah ; $i++) {
+                 echo "<li><a href='datapenjualan.php?halaman=$i'>".$i."</a></li>";
+             }
+
+            ?>
+
+            <!-- LINK NEXT AND LAST -->
+            <?php
+            // Jika page sama dengan jumlah page, maka disable link NEXT nya
+            // Artinya page tersebut adalah page terakhir
+            if($halaman == $jumlah){ // Jika page terakhir
+            ?>
+              <li class="disabled"><a href="#">&raquo;</a></li>
+            <?php
+            }else{ // Jika Bukan page terakhir
+              $link_next = ($halaman < $jumlah)? $halaman + 1 : $jumlah;
+            ?>
+              <li><a href="datapenjualan.php?page=<?php echo $link_next; ?>">&raquo;</a></li>
+            <?php
+            }
+            ?>
+          </ul>
+
     </nav>
     </center>
   </div>

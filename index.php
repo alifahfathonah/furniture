@@ -347,10 +347,8 @@ body{
 <div class="bo">
     <nav style="float:right;">
                 <ul >
-                    <a href="/login"><button type="button" class="btn btn-primary">LOGIN</button></a>
-                    <a href="/daftar"><button type="button" class="btn btn-success">DAFTAR</button></a>
-
-
+                    <a href="login.php"><button type="button" class="btn btn-primary">LOGIN</button></a>
+                    <a href="daftar.php"><button type="button" class="btn btn-success">DAFTAR</button></a>
                 </ul>
     </nav>
   <nav>
@@ -368,6 +366,7 @@ body{
     }
     $i = $posisi + 1;
     $sql = mysqli_query($conn, "SELECT * FROM barang LIMIT $posisi, 4");
+
     while ($hasil = mysqli_fetch_array($sql)) {
  ?>
 
@@ -406,7 +405,15 @@ body{
 				<div class="product-info smart-form">
 					<div class="row">
 						<div class="col-md-12">
-              <a href="detailproduk.php?detail=<?php echo $hasil['kode_barang']; ?>" class="btn btn-info">Detail Barang</a>
+              <?php
+                $sql2 = mysqli_query($conn, "SELECT * FROM pembeli");
+                while ($data = mysqli_fetch_array($sql2)) {
+              ?>
+              <a href="pemesanan.php?pemesanan=<?php echo $hasil['kode_barang']; ?>
+                &pembeli=<?php echo $data['id_pembeli']; ?>" class="btn btn-info">Pesan Barang</a>
+                <?php
+                    }
+                  ?>
 						</div>
 
 					</div>

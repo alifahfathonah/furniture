@@ -127,6 +127,7 @@
      							<br><br>
      							<br>
      							<hr>
+
      							Untuk order produk dan pemesan dapat dilakukan dengan mengklik <br>
      							link atau tombol di bawah ini : <br><a href="pemesanan.php?pemesanan=<?php echo $hasil['kode_barang']; ?>"><button type="button" class="btn btn-success">Pesan Barang</button></a> <br>
      							atau tersedia di menu utama

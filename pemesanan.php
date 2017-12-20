@@ -110,29 +110,45 @@
                             atau mengisi form konfirmasi berikut :
                           </p>
                     	<div class="parent">
+												    <div class="box1">
+															<?php
+															include "koneksi.php";
+															// Ambil data NIS yang dikirim oleh index.php melalui URL
+															$id_pembeli = $_GET['pembeli'];
 
-
-                            <div class="box1">
+															// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+															$query = "SELECT * FROM pembeli WHERE id_pembeli='".$id_pembeli."'";
+															$sql = mysqli_query($conn, $query); // Eksekusi/Jalankan query dari variabel $query
+															$data = mysqli_fetch_array($sql)
+															?>
+														<form action="proses-pemesanan.php" method="POST" >
 															<div class="form-group">
 																<label>Nama Lengkap</label>
-																<input type="text" class="form-control" name="jumlah_barang" placeholder="Jumlah Barang" style="width: 250px" >
+																<input type="hidden" class="form-control" name="id_pembeli" value="<?= $data['id_pembeli'] ?>" style="width: 250px" >
+																<input type="text" class="form-control" name="nama_pembeli" placeholder="Nama Pembeli" value="<?= $data['id_pembeli'] ?>" style="width: 250px" >
 															</div>
 															<div class="form-group">
 																<label>No. Telepon</label>
-																<input type="text" class="form-control" name="nama_barang" placeholder="Nama Barang" style="width: 250px" >
+																<input type="text" class="form-control" name="telepon" placeholder="Telepon" value="<?= $data['telepon'] ?>" style="width: 250px" >
 															</div>
 															<div class="form-group">
 																<label>Alamat</label>
-																<input type="text" class="form-control" name="harga" placeholder="Harga Barang" style="width: 250px" >
+																<input type="text" class="form-control" name="alamat_pembeli" placeholder="Harga Barang" value="<?= $data['alamat_pembeli'] ?>" style="width: 250px" >
 															</div>
                                 <br>
-
-
                             </div>
-
+														<?php
+														// Ambil data NIS yang dikirim oleh index.php melalui URL
+														$kode_barang = $_GET['pemesanan'];
+														// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+														$query = "SELECT * FROM barang WHERE kode_barang='".$kode_barang."'";
+														$sql = mysqli_query($conn, $query); // Eksekusi/Jalankan query dari variabel $query
+														$data = mysqli_fetch_array($sql)
+														?>
                             <div class="box2">
 															<div class="form-group">
 																<label>Jumlah Barang</label>
+																<input type="hidden" class="form-control" name="kode_barang" placeholder="Kode Barang" value="<?= $data['kode_barang'] ?>" style="width: 250px" >
 																<input type="text" class="form-control" name="jumlah_barang" placeholder="Jumlah Barang" style="width: 250px" >
 															</div>
 															<div class="form-group">
@@ -146,13 +162,15 @@
 															<div class="form-group">
 																<label>Jumlah Bayar</label>
 																<input type="text" class="form-control" name="jumlah_bayar" placeholder="Stock Barang" style="width: 250px" >
+																<input type="hidden" class="form-control" name="status"  value="Belum" style="width: 250px" >
+																<input type="text" class="form-control" name="tanggal" placeholder="Kode Barang" value="<?php $tgl=date('d-m-Y'); echo $tgl; ?>" style="width: 250px" >
 															</div>
 															<input type="submit" name="submit" value="Simpan" class="btn btn-success">
-															<a href="databarang.php"><input type="button" class="btn btn-default" value="Batal" ></a>
+														</form>
+															<a href="index.php"><input type="button" class="btn btn-default" value="Batal" ></a>
                             </div>
-     					</div>
+     								</div>
                     </table>
-<!---->
 
 
 		</div>

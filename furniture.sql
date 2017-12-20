@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Des 2017 pada 06.35
+-- Generation Time: 20 Des 2017 pada 17.00
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -59,8 +59,17 @@ CREATE TABLE `pegawai` (
   `id_pegawai` int(10) NOT NULL,
   `nama_pegawai` varchar(255) NOT NULL,
   `alamat_pegawai` text NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `id_pemilik` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pegawai`
+--
+
+INSERT INTO `pegawai` (`id_pegawai`, `nama_pegawai`, `alamat_pegawai`, `email`, `pass`, `id_pemilik`) VALUES
+(1, 'fata', 'Bandung', 'fata@email.com', 'bismillah', 1);
 
 -- --------------------------------------------------------
 
@@ -78,6 +87,13 @@ CREATE TABLE `pembeli` (
   `id_pegawai` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pembeli`
+--
+
+INSERT INTO `pembeli` (`id_pembeli`, `nama_pembeli`, `alamat_pembeli`, `telepon`, `email`, `password`, `id_pegawai`) VALUES
+(2, 'hasan', 'Bandung', '087822555784', 'hasan@email.com', 'bismillah', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -93,8 +109,17 @@ CREATE TABLE `pemesanan` (
   `pemilik_rekening` varchar(255) NOT NULL,
   `jumlah_bayar` int(10) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `tanggal` date NOT NULL
+  `tanggal` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_transaksi`, `id_pembeli`, `kode_barang`, `jumlah_barang`, `nama_bank`, `pemilik_rekening`, `jumlah_bayar`, `status`, `tanggal`) VALUES
+(1, 2, '232', 1, '', '1', 1, 'Belum', '0000-00-00'),
+(2, 2, '232', 2, '', 'barrur', 10, 'Terbayar', '0000-00-00'),
+(3, 2, 'a', 20, '', 'barrur', 1000000, 'Terbayar', '20-12-2017');
 
 -- --------------------------------------------------------
 
@@ -109,6 +134,13 @@ CREATE TABLE `pemilik` (
   `email` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pemilik`
+--
+
+INSERT INTO `pemilik` (`id_pemilik`, `nama_pemilik`, `alamat_pemilik`, `email`, `pass`) VALUES
+(1, 'barrur', 'Bandung', 'barrur@email.com', 'bismillah');
 
 --
 -- Indexes for dumped tables
@@ -156,22 +188,22 @@ ALTER TABLE `pemilik`
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pegawai` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pembeli`
 --
 ALTER TABLE `pembeli`
-  MODIFY `id_pembeli` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembeli` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `pemilik`
 --
 ALTER TABLE `pemilik`
-  MODIFY `id_pemilik` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pemilik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
