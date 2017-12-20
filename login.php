@@ -1,27 +1,31 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Masuk sistem</title>
-  <link href="{{asset("css/style.css")}}" rel="stylesheet">
+<title>
+.: Perpustakaan :. </title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<script src="js/bootstrap.min.js" type="text/css"></script>
+<script src="js/jquery.min.js" type="text/css"></script>
 </head>
 <body>
+<div id="login">
+	<h3>Login Pengguna</h3>
+	<fieldset>
+		<form action="proses-login.php" method="POST">
+			<div class="form-group">
+				<input class="form-control" type="text" name="username" placeholder="username" style="width:320">
+			</div>
+			<div class="form-group">
+			<input class="form-control" type="password" name="password" placeholder="Password" style="width:320">
+			</div>
+			<div class="form-group">
+			<input class="btn btn-primary" type="submit" name="submit" value="login" style="margin-left:10px"><br><br>
+			</div>
+				<a href="index.php" style="margin-left:10px"><< Kembali</a>
 
-  <div class="wrapper">
-    <div class="login">
-      <center><p class="title">Login</p></center>
-      <p>Email</p> <input type="text" placeholder="Email" name="user_member" autofocus/>
-      <i class="fa fa-user"></i>
-      <p>Password</p> <input type="password" placeholder="Password" name="password_member" />
-      <i class="fa fa-key"></i>
-      <a href="/daftar">Belum punya akun? DAFTAR DISINI</a>
-      <a href="pegawai/databarangpegawai"><button>
-        <i class="spinner"></i>
-        <span class="state">Masuk</span>
-      </button></a>
-
-    </div>
-  </p>
+</form>
 </div>
-
+</fieldset>
+</div>
 </body>
 </html>

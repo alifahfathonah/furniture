@@ -1,21 +1,6 @@
 <?php
-    include 'koneksi.php';
-
-    error_reporting(0);
-
-    $username = $_POST['user_member'];
-    $password = $_POST['password_member'];
-
-
-    $query = mysqli_query($conn, "SELECT * FROM pembeli WHERE email='$username' AND password='$password'");
-    $cek = mysqli_num_rows($query);
-
-    if ((!$username == 'email') and (!$password == 'password')) {
-        header("Location: http://localhost/furniture/user/loginpengguna.html");
-    }
-
-
-?>
+  session_start();
+ ?>
 
 <!DOCTYPE html>
 <html>
@@ -426,7 +411,8 @@ body{
 					<div class="row">
 						<div class="col-md-12">
               <?php
-                $sql2 = mysqli_query($conn, "SELECT * FROM pembeli");
+                $kode_pembeli = $_SESSION['id_pembeli'];
+                $sql2 = mysqli_query($conn, "SELECT * FROM pembeli where id_pembeli=$kode_pembeli");
                 while ($data = mysqli_fetch_array($sql2)) {
               ?>
               <a href="pemesanan.php?pemesanan=<?php echo $hasil['kode_barang']; ?>
