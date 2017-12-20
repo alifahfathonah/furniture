@@ -122,7 +122,7 @@
     						<td style="text-align: center;">1</td>
                 <td>2017</td>
                 <td>Januari</td>
-    						<td style="text-align: center;"><a href="#">Download</a></td>
+    						<td style="text-align: center;"><a href="download-laporan.php">Download</a></td>
   					  </tr>
               <tr>
     						<td style="text-align: center;">2</td>

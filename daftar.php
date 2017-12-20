@@ -3,16 +3,16 @@
 <head>
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Daftar Pengguna</title> 
+	<title>Daftar Pengguna</title>
 	<meta name="description" content="Distro, cikarang, terlengkap, information, technology, jababeka, baru, murah"/>
 	<meta name="keywords" content="Kaos, Murah, Cikarang, Baru, terlengkap, harga, terjangkau" />
 	<meta name="author" content="Hakko Bio Richard"/>
 	<!-- end: Meta -->
-	
+
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- end: Mobile Specific -->
-	
+
 	<!-- start: Facebook Open Graph -->
 	<meta property="og:title" content=""/>
 	<meta property="og:description" content=""/>
@@ -21,7 +21,7 @@
 	<meta property="og:image" content=""/>
 	<!-- end: Facebook Open Graph -->
 
-    <!-- start: CSS --> 
+    <!-- start: CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
@@ -36,7 +36,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <style type="text/css">
-    	
+
     	hr {
     		border: solid 2px black;
     	}
@@ -64,10 +64,10 @@
     </style>
 </head>
 <body>
-    
+
 	<!--start: Header -->
-	
-	
+
+
 	<!-- start: Page Title -->
 	<div id="page-title">
 
@@ -81,30 +81,31 @@
 			</div>
 			<!-- end: Container  -->
 
-		</div>	
+		</div>
 
 	</div>
 	<!-- end: Page Title -->
-	
+
 	<!--start: Wrapper-->
 	<div id="wrapper">
-				
+
 		<!--start: Container -->
-    	<div class="container">              
+    	<div class="container">
 
       		<!-- start: Row -->
-            
+
       		<div class="row">
             <div class="col-sm-6">
                 <form action="proses-pendaftaran.php" method="post" name="form1">
                     <table>
-                    	
+
      					<h2>FORM PENDAFTARAN PENGGUNA</h2>
-                        <hr>  
+                        <hr>
                         <div class="parent">
 
                             <div class="box1">
                                 Nama<br>
+
                                 <input type="text" name="nama"> <br>
 
                                 No. Telepon <br>
@@ -112,7 +113,7 @@
 
                                 Alamat Lengkap<br>
                                 <textarea name="alamat">
-                                    
+
                                 </textarea>
                                 <br>
                                 <input type="submit" value="Kirim" name="submit">
@@ -127,18 +128,19 @@
                                 <input type="password" name="password"> <br>
 
                                 Konfirmasi Password <br>
-                                <input type="password" name="confirmasi"> <br>
+                                <input type="password" name="confirmasi">
+																<input type="hidden" name="id_pegawai" value="1"> <br>
 
-                    
+
 
                             </div>
      					</div>
                     </table>
 <!---->
-				</form>	
-               
+				</form>
+
 
 		</div>
 
 </body>
-</html>	
+</html>
