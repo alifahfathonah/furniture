@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Des 2017 pada 17.00
+-- Generation Time: 26 Des 2017 pada 21.47
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -42,12 +42,10 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`kode_barang`, `nama_barang`, `harga`, `stock`, `foto`, `jenis_kayu`, `ukuran`, `warna`) VALUES
-('12', '10', 1, 10, '23559485_10208063600586222_4733666186152904436_n.jpg', 'a', 'a', 'a'),
-('232', '1', 1000000, 10, 'Kaos_Polos_Warna_Abu_abu_Premium_Edition (1).jpg', 'mahoni', '10', '1'),
-('a', 'a', 1, 1, 'Koleksi Furniture Kayu Minimalis Untuk Mempercantik Interior Rumah 1.jpg', 'aa', 'a', 'a'),
-('k', 'k', 1, 10, 'images (1).jpg', 'a', 'a', 'a'),
-('s', 'a', 1, 1, 'lemari.jpg', '1', '1', '1'),
-('w', 'w', 2, 2, 'Kursi-Tamu-Minimalis-Kotak-Blok.jpg', 's', 's', 's');
+('LBU-003', 'Lemari', 2000000, 10, 'f2a51cb3-95cb-4dc0-bc06-99507462fd12_1.4881f66b259cddba5654275418824604.jpg', 'Mahoni', 'P (80cm) L(130cm)', 'Kuning Kayu'),
+('MTU-002', 'Meja Tamu', 1200000, 10, 'Kursi-Tamu-Minimalis-Kotak-Blok.jpg', 'Mahoni', 'P (80cm) L(130cm)', 'Kuning Kayu'),
+('MTV-001', 'Meja Tv', 500000, 5, 'Koleksi Furniture Kayu Minimalis Untuk Mempercantik Interior Rumah 1.jpg', 'Mahoni', 'P (80cm) L(130cm)', 'Kuning Kayu'),
+('SFO-001', 'Kursi Sofa', 2500000, 15, 'images (1).jpg', '-', 'P (80cm) L(130cm)', 'Ungu');
 
 -- --------------------------------------------------------
 
@@ -92,7 +90,9 @@ CREATE TABLE `pembeli` (
 --
 
 INSERT INTO `pembeli` (`id_pembeli`, `nama_pembeli`, `alamat_pembeli`, `telepon`, `email`, `password`, `id_pegawai`) VALUES
-(2, 'hasan', 'Bandung', '087822555784', 'hasan@email.com', 'bismillah', 1);
+(4, 'Fata', 'Bandung\r\n                                ', '087822555784', 'fata@gmail.com', 'bismillah', 1),
+(5, 'Barrur', 'Bandung', '08382254532', 'k', 'k', 1),
+(6, 'hasan', 'Garut', '081803605255', 'hasan', 'hasan', 1);
 
 -- --------------------------------------------------------
 
@@ -117,9 +117,9 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`id_transaksi`, `id_pembeli`, `kode_barang`, `jumlah_barang`, `nama_bank`, `pemilik_rekening`, `jumlah_bayar`, `status`, `tanggal`) VALUES
-(1, 2, '232', 1, '', '1', 1, 'Belum', '0000-00-00'),
-(2, 2, '232', 2, '', 'barrur', 10, 'Terbayar', '0000-00-00'),
-(3, 2, 'a', 20, '', 'barrur', 1000000, 'Terbayar', '20-12-2017');
+(5, 5, 'MTU-002', 1, 'BNI', 'Barrur', 1200000, 'Belum', '2017-12-26'),
+(8, 4, 'MTV-001', 1, 'BNI', 'Fata', 500000, 'Terbayar', '2017-12-26'),
+(9, 6, 'MTV-001', 2, 'BNI', 'Hasan', 1000000, 'Terbayar', '2017-12-26');
 
 -- --------------------------------------------------------
 
@@ -193,12 +193,12 @@ ALTER TABLE `pegawai`
 -- AUTO_INCREMENT for table `pembeli`
 --
 ALTER TABLE `pembeli`
-  MODIFY `id_pembeli` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pembeli` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `pemilik`
 --
@@ -212,20 +212,20 @@ ALTER TABLE `pemilik`
 -- Ketidakleluasaan untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`id_pemilik`) REFERENCES `pemilik` (`id_pemilik`);
+  ADD CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`id_pemilik`) REFERENCES `pemilik` (`id_pemilik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `pembeli`
 --
 ALTER TABLE `pembeli`
-  ADD CONSTRAINT `pembeli_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
+  ADD CONSTRAINT `pembeli_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  ADD CONSTRAINT `pemesanan_ibfk_1` FOREIGN KEY (`id_pembeli`) REFERENCES `pembeli` (`id_pembeli`),
-  ADD CONSTRAINT `pemesanan_ibfk_2` FOREIGN KEY (`kode_barang`) REFERENCES `barang` (`kode_barang`);
+  ADD CONSTRAINT `pemesanan_ibfk_1` FOREIGN KEY (`id_pembeli`) REFERENCES `pembeli` (`id_pembeli`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pemesanan_ibfk_2` FOREIGN KEY (`kode_barang`) REFERENCES `barang` (`kode_barang`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
