@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION['id_pembeli'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,7 +116,7 @@
                                 Silahkan Mentransfer dan konfirmasi ke kami, terima kasih .
                             </p>
                         </div>
-                        <a href="index.php"><button type="button" name="button">Kembali</button></a>
+                        <a href="masuk.php"><button type="button" name="button">Kembali</button></a>
 
 
                     </table>
@@ -126,3 +130,8 @@
 
 </body>
 </html>
+<?php
+}else{
+	header("location:login.php");
+}
+?>

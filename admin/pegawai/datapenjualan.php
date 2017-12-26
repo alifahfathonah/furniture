@@ -63,7 +63,7 @@
         <!-- User Account Menu -->
           <li>
           <!-- Menu Toggle Button -->
-          <a href="index.html" >
+          <a href="../../index.php" >
 
             Keluar
           </a>

@@ -42,13 +42,13 @@
     	}
     	.box1 {
     		width: 400px;
-    		height: 400px;
+    		height: 200px;
     		margin-right: 20px;
     	}
 
     	.box2 {
     		width: 400px;
-    		height: 400px;
+    		height: 200px;
     		margin-right: 20px;
     	}
 
@@ -76,7 +76,7 @@
 			<!-- start: Container -->
 			<div class="container">
 
-				<h2><i class=""></i>Furniture Suka Mundur Kadang Maju</h2>
+				<center><h2><i class=""></i>Furniture Suka Mundur Kadang Maju</h2></center>
 
 			</div>
 			<!-- end: Container  -->
@@ -99,13 +99,13 @@
                 <form action="proses-pendaftaran.php" method="post" name="form1">
                     <table>
 
-     					<h2>FORM PENDAFTARAN PENGGUNA</h2>
+     				<h2>FORM PENDAFTARAN PENGGUNA</h2>
                         <hr>
                         <div class="parent">
 
                             <div class="box1">
                                 Nama<br>
-															
+
                                 <input type="text" name="nama"> <br>
 
                                 No. Telepon <br>
@@ -116,8 +116,8 @@
 
                                 </textarea>
                                 <br>
-                                <input type="submit" value="Kirim" name="submit">
-                                <a href="../index.php"><input type="reset" name="" value="Batal"></a>
+																<input type="submit" name="submit" value="Daftar" class="btn btn-success">
+									              <a href="index.php"><input type="button" class="btn btn-default" value="Batal" style="color: black;" ></a>
                             </div>
 
                             <div class="box2">

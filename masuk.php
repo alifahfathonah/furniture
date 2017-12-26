@@ -1,6 +1,8 @@
 <?php
-  session_start();
- ?>
+session_start();
+if(isset($_SESSION['id_pembeli'])){
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -412,14 +414,12 @@ body{
 						<div class="col-md-12">
               <?php
                 $kode_pembeli = $_SESSION['id_pembeli'];
-                $sql2 = mysqli_query($conn, "SELECT * FROM pembeli where id_pembeli=$kode_pembeli");
-                while ($data = mysqli_fetch_array($sql2)) {
               ?>
-              <a href="pemesanan.php?pemesanan=<?php echo $hasil['kode_barang']; ?>
-                &pembeli=<?php echo $data['id_pembeli']; ?>" class="btn btn-info">Pesan Barang</a>
-                <?php
-                    }
-                  ?>
+              <form action="pemesanan.php" method="post">
+                <input type="hidden" name="id_pembeli" value="<?php echo $kode_pembeli ?>" >
+                <input type="hidden" name="kode_barang" value="<?php echo $hasil['kode_barang']; ?>" >
+                <input type="submit" name="submit" value="Pesan Barang" class="btn btn-info">
+              </form>
 						</div>
 
 					</div>
@@ -490,3 +490,8 @@ body{
 <br>
 </body>
 </html>
+<?php
+}else{
+	header("location:login.php");
+}
+?>

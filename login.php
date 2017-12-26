@@ -96,7 +96,7 @@
   transition: all 0.25s ease-out;
 }
 .login a {
-  font-size: 0.8em;
+  font-size: 1em;
   color: #2196F3;
   text-decoration: none;
 }
@@ -188,14 +188,14 @@ footer a, footer a:link {
 </fieldset>
 </div> -->
 <div class="wrapper">
-  <form class="login" action="proses-login.php" method="POST">
+  <form class="login" action="proses-login.php" method="post">
     <p class="title">LOGIN PENGGUNA</p>
     <input type="text" placeholder="Email" name="username" autofocus/>
     <i class="fa fa-user"></i>
     <input type="password" placeholder="Password" name="password" />
     <i class="fa fa-key"></i>
-    <a href="daftar.php">Belum punya akun? DAFTAR DISINI</a>
-    <button name="submit">
+    <p style="font-size: 0.8em; text-decoration: none;">Belum punya akun? DAFTAR <a href="daftar.php">DISINI</a></p>
+    <button type="submit" name="submit">
       <span>Masuk</span>
     </button>
   </form>
