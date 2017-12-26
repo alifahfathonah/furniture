@@ -91,8 +91,8 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="active"><a href="../databarang.php"><span>Data Barang</span></a></li>
-        <li class="active"><a href="../datapenjualan.php"><span>Data Penjualan</span></a></li>
+        <li class="active"><a href="databarang.php"><span>Data Barang</span></a></li>
+        <li class="active"><a href="datapenjualan.php"><span>Data Penjualan</span></a></li>
     </ul>
 
         <!-- sidebar menu: : style can be found in sidebar.less -->

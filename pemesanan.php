@@ -165,7 +165,7 @@
 																<input type="hidden" class="form-control" name="status"  value="Belum" style="width: 250px" >
 																<input type="hidden" class="form-control" name="tanggal" placeholder="Kode Barang" value="<?php $tgl=date('Y-m-d'); echo $tgl; ?>" style="width: 250px" >
 															</div>
-															<input type="submit" name="submit" value="Simpan" class="btn btn-success">
+															<input type="submit" name="submit" value="Kirim" class="btn btn-success">
 														</form>
 															<a href="index.php"><input type="button" class="btn btn-default" value="Batal" ></a>
                             </div>

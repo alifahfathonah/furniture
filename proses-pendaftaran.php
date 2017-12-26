@@ -19,7 +19,7 @@
 
                         if ($query) {
                           echo "<script language='javascript'>alert('Berhasil Daftar');</script>";
-                          echo '<meta http-equiv="refresh" content="0; url=loginpengguna.php">';    
+                          echo '<meta http-equiv="refresh" content="0; url=login.php">';    
                         }
 
 
