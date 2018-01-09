@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 26 Des 2017 pada 21.47
+-- Generation Time: 09 Jan 2018 pada 04.12
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -42,6 +42,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`kode_barang`, `nama_barang`, `harga`, `stock`, `foto`, `jenis_kayu`, `ukuran`, `warna`) VALUES
+('2', '2', 2, 2, 'KP-NG-21.jpg', '2', '2', '2'),
 ('LBU-003', 'Lemari', 2000000, 10, 'f2a51cb3-95cb-4dc0-bc06-99507462fd12_1.4881f66b259cddba5654275418824604.jpg', 'Mahoni', 'P (80cm) L(130cm)', 'Kuning Kayu'),
 ('MTU-002', 'Meja Tamu', 1200000, 10, 'Kursi-Tamu-Minimalis-Kotak-Blok.jpg', 'Mahoni', 'P (80cm) L(130cm)', 'Kuning Kayu'),
 ('MTV-001', 'Meja Tv', 500000, 5, 'Koleksi Furniture Kayu Minimalis Untuk Mempercantik Interior Rumah 1.jpg', 'Mahoni', 'P (80cm) L(130cm)', 'Kuning Kayu'),
