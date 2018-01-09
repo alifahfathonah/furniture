@@ -127,16 +127,17 @@
 				<tbody>
           <?php
 						include "../../koneksi.php";
-						$halaman = @$_GET['halaman'];
-						if (empty($halaman)) {
-							$posisi = 0;
-							$halaman = 1;
-						} else {
-							$posisi = ($halaman-1) * 5;
-						}
-						$i = $posisi + 1;
-						$sql = mysqli_query($conn, "SELECT * FROM barang LIMIT $posisi, 5");
-						while ($hasil = mysqli_fetch_array($sql)) {
+            include 'crud.php';
+            $crud = new Crud_Barang();
+            $halaman = @$_GET['halaman'];
+            if (empty($halaman)) {
+              $posisi = 0;
+              $halaman = 1;
+            } else {
+              $posisi = ($halaman-1) * 5;
+            }
+            $i = $posisi + 1;
+						foreach($crud->TampilBarang($posisi) as $hasil){
 				 ?>
 		 	<tr>
 		 			<td style="text-align: center;"><?php echo $i; ?></td>
@@ -146,7 +147,7 @@
 		 			<td><?php echo $hasil['stock']; ?></td>
 		 			<td><img src="../../gambar/<?php echo $hasil['foto']; ?>" width='50px' height='50px'></td>
 		 			<td style="text-align: center;"><a href="editdata.php?edit=<?php echo $hasil['kode_barang']; ?>">Edit</a>
-		 			<a href="proses-hapus.php?hapus=<?php echo $hasil['kode_barang']; ?>">Hapus</a></td>
+		 			<a href="proses.php?hapus=<?php echo $hasil['kode_barang']; ?>&aksi=hapus">Hapus</a></td>
 		 	</tr>
       <?php
 		 			$i++;

@@ -114,7 +114,7 @@
     <!-- Main content -->
     <section class="content container-fluid">
         <div class="box box-info">
-        <form action="proses-tambah.php" method="POST" enctype="multipart/form-data" >
+        <form action="proses.php?aksi=tambah" method="POST" enctype="multipart/form-data" >
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Kode Barang</label>

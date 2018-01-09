@@ -92,7 +92,7 @@
       <!-- Sidebar user panel -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="active"><a href="databarang.php"><span>Data Barang</span></a></li>
-        <li class="active"><a href="datapenjualan.php"><span>Data Penjualan</span></a></li>
+        <li class="active"><a href="datapenjualan.php"><span>Data Pemesanan</span></a></li>
     </ul>
 
         <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -121,10 +121,10 @@
 
         // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
         $query = "SELECT * FROM barang WHERE kode_barang='".$kode_barang."'";
-        $sql = mysqli_query($conn, $query); // Eksekusi/Jalankan query dari variabel $query
-        $data = mysqli_fetch_array($sql)
+        $sql = $conn->query($query); // Eksekusi/Jalankan query dari variabel $query
+        $data=$sql->fetch_assoc()
         ?>
-        <form action="proses-edit.php" method="POST" enctype="multipart/form-data" >
+        <form action="proses.php?aksi=edit" method="POST" enctype="multipart/form-data" >
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Kode Barang</label>

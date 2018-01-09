@@ -118,13 +118,14 @@ if(isset($_SESSION['id_pembeli'])){
 												    <div class="box1">
 															<?php
 															include "koneksi.php";
+															include 'crud.php';
+													    $crud = new Crud_Barang();
+
 															// Ambil data NIS yang dikirim oleh index.php melalui URL
 															$id_pembeli = $_POST['id_pembeli'];
 
 															// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-															$query = "SELECT * FROM pembeli WHERE id_pembeli='".$id_pembeli."'";
-															$sql = mysqli_query($conn, $query); // Eksekusi/Jalankan query dari variabel $query
-															$data = mysqli_fetch_array($sql)
+															foreach($crud->tampilpembeli($id_pembeli) as $data){
 															?>
 														<form action="proses-pemesanan.php" method="POST" >
 															<div class="form-group">
@@ -143,12 +144,12 @@ if(isset($_SESSION['id_pembeli'])){
                                 <br>
                             </div>
 														<?php
+													}
 														// Ambil data NIS yang dikirim oleh index.php melalui URL
 														$kode_barang = $_POST['kode_barang'];
+
 														// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-														$query = "SELECT * FROM barang WHERE kode_barang='".$kode_barang."'";
-														$sql = mysqli_query($conn, $query); // Eksekusi/Jalankan query dari variabel $query
-														$data = mysqli_fetch_array($sql)
+														foreach($crud->tampilbarangspesifik($kode_barang) as $data)
 														?>
                             <div class="box2">
 															<div class="form-group">

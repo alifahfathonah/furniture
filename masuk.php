@@ -364,6 +364,8 @@ body{
   <hr>
   <?php
     include "koneksi.php";
+    include 'crud.php';
+    $crud = new Crud_Barang();
     $halaman = @$_GET['halaman'];
     if (empty($halaman)) {
       $posisi = 0;
@@ -372,9 +374,7 @@ body{
       $posisi = ($halaman-1) * 4;
     }
     $i = $posisi + 1;
-    $sql = mysqli_query($conn, "SELECT * FROM barang LIMIT $posisi, 4");
-
-    while ($hasil = mysqli_fetch_array($sql)) {
+    foreach($crud->TampilBarang($posisi) as $hasil){
  ?>
 
 <div class="col-xs-12 col-md-6">
