@@ -49,6 +49,8 @@ ob_start(); ?>
   <tbody>
       <?php
         include "../../koneksi.php";
+        include '../../kelas/pesan.php';
+        $download = new Pesan();
         if ($bulan == "January") {
           $bulan = "01";
         }else if($bulan == "February") {
@@ -75,8 +77,7 @@ ob_start(); ?>
           $bulan = "12";
         }
         $i = 1;
-        $sql = mysqli_query($conn, "SELECT pembeli.nama_pembeli, pembeli.telepon, pembeli.alamat_pembeli, barang.nama_barang, pemesanan.jumlah_barang, pemesanan.nama_bank, pemesanan.pemilik_rekening, pemesanan.jumlah_bayar, pemesanan.status, pemesanan.id_transaksi FROM (barang join pemesanan on barang.kode_barang = pemesanan.kode_barang) join pembeli on pemesanan.id_pembeli = pembeli.id_pembeli WHERE year(pemesanan.tanggal) = '$tahun' AND month(pemesanan.tanggal) = '$bulan'");
-        while ($hasil = mysqli_fetch_array($sql)) {
+        foreach($download->download($tahun, $bulan) as $hasil){
      ?>
       <tr>
         <td style="text-align: center;"><?php echo $i; ?></td>

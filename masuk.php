@@ -364,8 +364,8 @@ body{
   <hr>
   <?php
     include "koneksi.php";
-    include 'crud.php';
-    $crud = new Crud_Barang();
+    include 'kelas/barang.php';
+    $katalog = new Barang();
     $halaman = @$_GET['halaman'];
     if (empty($halaman)) {
       $posisi = 0;
@@ -374,7 +374,7 @@ body{
       $posisi = ($halaman-1) * 4;
     }
     $i = $posisi + 1;
-    foreach($crud->TampilBarang($posisi) as $hasil){
+    foreach($katalog->tampilproduk($posisi) as $hasil){
  ?>
 
 <div class="col-xs-12 col-md-6">

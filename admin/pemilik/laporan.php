@@ -119,6 +119,8 @@
   				<tbody>
               <?php
                 include "../../koneksi.php";
+                include '../../kelas/pesan.php';
+                $laporan = new Pesan();
                 $halaman = @$_GET['halaman'];
                 if (empty($halaman)) {
                   $posisi = 0;
@@ -127,10 +129,8 @@
                   $posisi = ($halaman-1) * 5;
                 }
                 $i = $posisi + 1;
-                $sql = mysqli_query($conn, "SELECT DISTINCT date_format(tanggal, '%Y') as tahun, date_format(tanggal, '%M') as bulan  FROM `pemesanan` LIMIT $posisi, 5");
-                while ($hasil = mysqli_fetch_array($sql)) {
+                foreach($laporan->tampillaporan($posisi) as $hasil){
              ?>
-
               <tr>
     						<td style="text-align: center;"><?php echo $i; ?></td>
                 <td><?php echo $hasil['tahun']; ?></td>

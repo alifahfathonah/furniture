@@ -127,8 +127,8 @@
 				<tbody>
           <?php
 						include "../../koneksi.php";
-            include 'crud.php';
-            $crud = new Crud_Barang();
+            include '../../kelas/barang.php';
+            $barang = new Barang();
             $halaman = @$_GET['halaman'];
             if (empty($halaman)) {
               $posisi = 0;
@@ -137,7 +137,7 @@
               $posisi = ($halaman-1) * 5;
             }
             $i = $posisi + 1;
-						foreach($crud->TampilBarang($posisi) as $hasil){
+						foreach($barang->tampilbarang($posisi) as $hasil){
 				 ?>
 		 	<tr>
 		 			<td style="text-align: center;"><?php echo $i; ?></td>

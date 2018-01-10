@@ -1,6 +1,6 @@
 <?php
-include 'crud.php';
-$crud = new Crud_Barang();
+include '../../kelas/pesan.php';
+$status = new Pesan();
 
 $aksi = $_GET['aksi'];
 if($aksi == "tambah"){
@@ -11,7 +11,11 @@ if($aksi == "tambah"){
 }elseif($aksi == "edit"){
  	$crud->editbarang($_POST['kode_barang'],$_POST['nama_barang'],$_POST['harga'],$_POST['stock'],$_FILES['foto'],
   $_POST['jenis_kayu'],$_POST['ukuran'],$_POST['warna'],$_POST['ubah_foto']);
- }
+}elseif ($aksi == "konfirmasi") {
+  $status->ubahstatus($_GET['id_transaksi'],$_GET['konfirmasi']);
+}
+
+
 ?>
 
 ?>

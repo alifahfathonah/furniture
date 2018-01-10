@@ -127,6 +127,8 @@
 				<tbody>
             <?php
               include "../../koneksi.php";
+              include '../../kelas/pesan.php';
+              $pemesanan = new Pesan();
               $halaman = @$_GET['halaman'];
               if (empty($halaman)) {
                 $posisi = 0;
@@ -135,8 +137,7 @@
                 $posisi = ($halaman-1) * 5;
               }
               $i = $posisi + 1;
-              $sql = mysqli_query($conn, "SELECT pembeli.nama_pembeli, pembeli.telepon, pembeli.alamat_pembeli, barang.nama_barang, pemesanan.jumlah_barang, pemesanan.nama_bank, pemesanan.pemilik_rekening, pemesanan.jumlah_bayar, pemesanan.status, pemesanan.id_transaksi FROM (barang join pemesanan on barang.kode_barang = pemesanan.kode_barang) join pembeli on pemesanan.id_pembeli = pembeli.id_pembeli LIMIT $posisi, 5");
-              while ($hasil = mysqli_fetch_array($sql)) {
+              foreach($pemesanan->tampilpemesanan($posisi) as $hasil){
            ?>
             <tr>
               <td style="text-align: center;"><?php echo $i; ?></td>
@@ -151,7 +152,7 @@
               <td><?php echo $hasil['status']; ?></td>
               <?php if ($hasil['status'] == "Belum"){
                 ?>
-                  <td style="text-align: center;"><a href="proses-Konfirmasi.php?id_transaksi=<?php echo $hasil['id_transaksi']; ?>&konfirmasi=<?php echo $hasil['status']; ?>">Konfirmasi</a></td>
+                  <td style="text-align: center;"><a href="proses.php?id_transaksi=<?php echo $hasil['id_transaksi']; ?>&konfirmasi=<?php echo $hasil['status']; ?>&aksi=konfirmasi">Konfirmasi</a></td>
               <?php
             }else{
                 ?>
