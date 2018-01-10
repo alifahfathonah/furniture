@@ -137,7 +137,7 @@
                 $posisi = ($halaman-1) * 5;
               }
               $i = $posisi + 1;
-              foreach($pemesanan->tampilpemesanan($posisi) as $hasil){
+              foreach($pemesanan->tampil_pemesanan($posisi) as $hasil){
            ?>
             <tr>
               <td style="text-align: center;"><?php echo $i; ?></td>

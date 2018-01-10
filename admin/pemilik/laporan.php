@@ -129,13 +129,13 @@
                   $posisi = ($halaman-1) * 5;
                 }
                 $i = $posisi + 1;
-                foreach($laporan->tampillaporan($posisi) as $hasil){
+                foreach($laporan->tampil_laporan($posisi) as $hasil){
              ?>
               <tr>
     						<td style="text-align: center;"><?php echo $i; ?></td>
                 <td><?php echo $hasil['tahun']; ?></td>
                 <td><?php echo $hasil['bulan']; ?></td>
-    						<td style="text-align: center;"><a href="download-laporan.php?tahun=<?php echo $hasil['tahun']; ?>&bulan=<?php echo $hasil['bulan']; ?>">Download</a></td>
+    						<td style="text-align: center;"><a href="proses.php?tahun=<?php echo $hasil['tahun']; ?>&bulan=<?php echo $hasil['bulan']; ?>&aksi=download">Download</a></td>
   					  </tr>
               <?php
         		 			$i++;
@@ -165,7 +165,7 @@
               <!-- LINK NUMBER -->
               <?php
               // Buat query untuk menghitung semua jumlah data
-              $res = mysqli_query($conn, "SELECT * FROM pemesanan");
+              $res = $conn->query("SELECT DISTINCT date_format(tanggal, '%Y') as tahun, date_format(tanggal, '%M') as bulan  FROM `pemesanan`");
               $hitung = mysqli_num_rows($res);
               $jum = $hitung / 5;
               $jumlah = ceil($jum);

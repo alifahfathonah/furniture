@@ -168,25 +168,6 @@ footer a, footer a:link {
 </style>
 </head>
 <body>
-<!-- <div id="login">
-  <h3>Login Pengguna</h3>
-  <fieldset>
-    <form action="proses-login.php" method="POST">
-      <div class="form-group">
-        <input class="form-control" type="text" name="username" placeholder="username" style="width:320">
-      </div>
-      <div class="form-group">
-      <input class="form-control" type="password" name="password" placeholder="Password" style="width:320">
-      </div>
-      <div class="form-group">
-      <input class="btn btn-primary" type="submit" name="submit" value="login" style="margin-left:10px"><br><br>
-      </div>
-        <a href="index.php" style="margin-left:10px"><< Kembali</a>
-
-</form>
-</div>
-</fieldset>
-</div> -->
 <div class="wrapper">
   <form class="login" action="proses-login.php" method="post">
     <p class="title">LOGIN PENGGUNA</p>

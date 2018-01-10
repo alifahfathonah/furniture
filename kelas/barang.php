@@ -5,7 +5,7 @@ class Barang
   // {
   //     parent::__construct();
   // }
-  public function tampilbarang($posisi)
+  public function tampil_barang($posisi)
   {
     include '../../koneksi.php';
     $result = $conn->query("SELECT * FROM barang LIMIT $posisi, 5");
@@ -18,7 +18,7 @@ class Barang
     $mysqli->close();
   }
 
-  public function tambahbarang($kode_barang,$nama_barang,$harga,$stock,$foto,$jenis_kayu,$ukuran,$warna)
+  public function tambah_barang($kode_barang,$nama_barang,$harga,$stock,$foto,$jenis_kayu,$ukuran,$warna)
   {
     include '../../koneksi.php';
     $foto = $_FILES['foto']['name'];
@@ -39,7 +39,7 @@ class Barang
     }
   }
 
-  public function editbarang($kode_barang,$nama_barang,$harga,$stock,$foto,$jenis_kayu,$ukuran,$warna,$ubahfoto)
+  public function edit_barang($kode_barang,$nama_barang,$harga,$stock,$foto,$jenis_kayu,$ukuran,$warna,$ubahfoto)
   {
     include '../../koneksi.php';
     // Cek apakah user ingin mengubah fotonya atau tidak
@@ -92,7 +92,7 @@ class Barang
     }
   }
 
-  public function hapusbarang($kode_barang)
+  public function hapus_barang($kode_barang)
   {
     include '../../koneksi.php';
     $query = "SELECT * FROM barang WHERE kode_barang='".$kode_barang."'";
@@ -116,7 +116,7 @@ class Barang
     }
   }
 
-  public function tampilproduk($posisi)
+  public function tampil_produk($posisi)
   {
     include 'koneksi.php';
     $result = $conn->query("SELECT * FROM barang LIMIT $posisi, 4");

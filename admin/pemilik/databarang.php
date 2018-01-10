@@ -62,7 +62,7 @@
         <!-- User Account Menu -->
           <li>
           <!-- Menu Toggle Button -->
-          <a href="../../index.php" >
+          <a href="../../logout.php" >
 
             Keluar
           </a>
@@ -121,6 +121,8 @@
         <tbody>
           <?php
 						include "../../koneksi.php";
+            include '../../kelas/barang.php';
+            $databarang = new Barang();
 						$halaman = @$_GET['halaman'];
 						if (empty($halaman)) {
 							$posisi = 0;
@@ -129,8 +131,7 @@
 							$posisi = ($halaman-1) * 5;
 						}
 						$i = $posisi + 1;
-						$sql = mysqli_query($conn, "SELECT * FROM barang LIMIT $posisi, 5");
-						while ($hasil = mysqli_fetch_array($sql)) {
+						foreach($databarang->tampil_barang($posisi) as $hasil){
 				 ?>
 		 	<tr>
 		 			<td style="text-align: center;"><?php echo $i; ?></td>

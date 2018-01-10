@@ -7,15 +7,14 @@
 <body>
 
   <div class="wrapper">
-  <form class="login" action="databarang.php" method="post">
+  <form class="login" action="proses-login.php" method="post">
     <p class="title">LOGIN PEGAWAI</p>
-    <input type="text" placeholder="Email" name="user_member" autofocus/>
+    <input type="text" placeholder="Email" name="email" autofocus/>
     <i class="fa fa-user"></i>
-    <input type="password" placeholder="Password" name="password_member" />
+    <input type="password" placeholder="Password" name="password" />
     <i class="fa fa-key"></i>
-    <button>
-      <i class="spinner"></i>
-      <span class="state">Masuk</span>
+		<button type="submit" name="submit">
+      <span>Masuk</span>
     </button>
   </form>
   </p>

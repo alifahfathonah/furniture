@@ -128,7 +128,7 @@
           <?php
 						include "../../koneksi.php";
             include '../../kelas/barang.php';
-            $barang = new Barang();
+            $databarang = new Barang();
             $halaman = @$_GET['halaman'];
             if (empty($halaman)) {
               $posisi = 0;
@@ -137,7 +137,7 @@
               $posisi = ($halaman-1) * 5;
             }
             $i = $posisi + 1;
-						foreach($barang->tampilbarang($posisi) as $hasil){
+						foreach($databarang->tampil_barang($posisi) as $hasil){
 				 ?>
 		 	<tr>
 		 			<td style="text-align: center;"><?php echo $i; ?></td>
@@ -178,7 +178,7 @@
             <!-- LINK NUMBER -->
             <?php
             // Buat query untuk menghitung semua jumlah data
-            $res = mysqli_query($conn, "SELECT * FROM barang");
+            $res = $conn->query("SELECT * FROM barang");
             $hitung = mysqli_num_rows($res);
             $jum = $hitung / 5;
             $jumlah = ceil($jum);

@@ -365,7 +365,7 @@ body{
   <?php
     include "koneksi.php";
     include 'kelas/barang.php';
-    $katalog = new Barang();
+    $katalogproduk = new Barang();
     $halaman = @$_GET['halaman'];
     if (empty($halaman)) {
       $posisi = 0;
@@ -374,7 +374,7 @@ body{
       $posisi = ($halaman-1) * 4;
     }
     $i = $posisi + 1;
-    foreach($katalog->tampilproduk($posisi) as $hasil){
+    foreach($katalogproduk->tampil_produk($posisi) as $hasil){
  ?>
 
 <div class="col-xs-12 col-md-6">
@@ -455,7 +455,7 @@ body{
             <!-- LINK NUMBER -->
             <?php
             // Buat query untuk menghitung semua jumlah data
-            $res = mysqli_query($conn, "SELECT * FROM barang");
+            $res = $conn->query("SELECT * FROM barang");
             $hitung = mysqli_num_rows($res);
             $jum = $hitung / 4;
             $jumlah = ceil($jum);
